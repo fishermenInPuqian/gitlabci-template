@@ -6,15 +6,7 @@ stages:
   image:
     name: boker-hub-registry.cn-shanghai.cr.aliyuncs.com/poker-public/runner-build:svn
   script:
+    - echo "github demo"
     - sleep 3000000000
-    - IMAGE_MANE=`echo $CI_COMMIT_REF_NAME |awk -F '_' '{print $1}'`
-    - IMAGES_TAG=`echo $CI_COMMIT_REF_NAME |awk -F "_" '{print $2}'`
-    - echo $IMAGE_MANE
-    - echo $IMAGES_TAG
-    - docker login --username=$ALICLOUD_USER $ALICOUD_URL_PROD -p $ALICLOUD_USER_PASSWD
-    - docker build -t $ALICOUD_URL_PROD/poker-public/$IMAGE_MANE:$IMAGES_TAG .
-    - docker push $ALICOUD_URL_PROD/poker-public/$IMAGE_MANE:$IMAGES_TAG
-    - docker rmi $ALICOUD_URL_PROD/poker-public/$IMAGE_MANE:$IMAGES_TAG
-    - docker logout $ALICOUD_URL_PROD
   tags:
     - k3s-runner
