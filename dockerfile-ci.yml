@@ -7,6 +7,5 @@ stages:
     name: boker-hub-registry.cn-shanghai.cr.aliyuncs.com/poker-public/runner-build:svn
   script:
     - echo "github demo"
-    - sleep 3000000000
   tags:
     - k3s-runner
